@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminLoginRequest;
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
+{
+    public function login()
+    {
+
+        return view('Admin.auth.login');
+    }
+
+
+    public function postLogin(Request $request)
+    {
+
+        //validation
+
+        //check , store , update
+
+
+        if (auth()->guard()->attempt([
+            'email' => $request->input("email"),
+            'password' => $request->input("password")]
+            )) {
+            return redirect()->route('admin.dashboard');
+        }
+        return redirect()->back()->with(['error' => 'هناك خطا بالبيانات']);
+
+    }
+
+    public function logout()
+    {
+
+        $gaurd = $this->getGaurd();
+        $gaurd->logout();
+
+        return redirect()->route('admin.login');
+    }
+
+    private function getGaurd()
+    {
+        return auth('admin');
+    }
+}
