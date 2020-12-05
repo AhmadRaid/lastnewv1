@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use \JordanMiguel\LaravelPopular\Traits\Visitable;
 
 use Illuminate\Database\Eloquent\Model;
@@ -8,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use Visitable;
-    protected $fillable = ['Department_id', 'Content', 'Is_active','Title_News','Image','Country'];
+
+    protected $guarded = [];
 
     public function _is_active($request)
     {
@@ -21,6 +23,6 @@ class News extends Model
 
     public function department()
     {
-        return $this->belongsTo(Department::Class , 'Department_id');
+        return $this->belongsTo(Department::Class, 'Department_id');
     }
 }

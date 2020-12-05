@@ -37,22 +37,25 @@
                                 @csrf
                                 <div class="card-body">
 
-
-
                                     <div class="form-group">
 
                                         <label>Content News</label>
 
                                         <textarea id="editor" rows="5" cols="50ad" name="content_" class="form-control"></textarea>
+                                        @error('content_')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <!-- /.card-header -->
 
                                     <div class="form-group">
                                         <label>Image</label> <br>
-                                        <input type="file" name="image_news">
+                                        <input type="file" name="image_opinion">
+                                        @error('image_opinion')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
-
 
                                     <div class="row">
                                         <div class="col-md-6">

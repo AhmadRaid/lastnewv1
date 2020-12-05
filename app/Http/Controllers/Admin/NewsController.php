@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\newsrequest;
 use App\Models\Department;
 use App\Models\News;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class NewsController extends Controller
         return view('Admin.News.create',compact('departments'));
     }
 
-    public function store(Request $request){
+    public function store(newsrequest $request){
 
         News::create([
             'Title_News' => $request->title_news,
@@ -25,7 +26,8 @@ class NewsController extends Controller
             'Content' => $request->content_,
             'Is_active' => 1,
             'Image' => $request->image_news,
-            'Country' => $request->country
+            'Country' => $request->country,
+            'Visit_Count' => $request->visit_count
         ]);
 
         return redirect()->route('Admin.News');

@@ -153,7 +153,6 @@
         </div>
     </div>
 </header>
-@foreach($news as $new)
 <div class="container">
     <div class="row mt-3">
         <div class="col-md-12">
@@ -170,16 +169,16 @@
         </div>
     </div>
     <div class="row text-center mb-3">
-        <img src="{{asset('assets/site/img/'. $new -> Image)}}" width="40%" height="90" alt="" class=" m-auto">
+        <img src="{{asset('assets/site/img/'. $news -> Image)}}" width="40%" height="90" alt="" class=" m-auto">
     </div>
     <div class="row mt-1" style="background: rgba(238, 238, 238, 0.74);">
 
         <div class="col-md-8 pt-3">
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    <h4 class="text-success my-4 font-weight-bold"> {{ $new -> Title_News }}</h4>
+                    <h4 class="text-success my-4 font-weight-bold"> {{ $news -> Title_News }}</h4>
                     <img src="img/nnn.jpg" class="img-fluid" alt="">
-                    <p class="mt-5"> {{ $new -> Content }}
+                    <p class="mt-5"> {{ $news -> Content }}
                 </div>
             </div>
         </div>
@@ -365,7 +364,6 @@
             </div>
         </div>
     </div>
-    @endforeach
 </footer>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

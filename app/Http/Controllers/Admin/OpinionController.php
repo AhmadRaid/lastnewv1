@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\opinionrequest;
 use App\Models\Department;
 use App\Models\News;
 use App\Models\Opinion;
@@ -21,13 +22,13 @@ class OpinionController extends Controller
         return view('Admin.Opinion.create');
     }
 
-    public function store(Request $request)
+    public function store(opinionrequest $request)
     {
 
         Opinion::create([
             'Content' => $request->content_,
             'Is_active' => 1,
-            'Image' => $request->image_news,
+            'Image' => $request->image_opinion,
         ]);
 
         return redirect()->route('Admin.News');

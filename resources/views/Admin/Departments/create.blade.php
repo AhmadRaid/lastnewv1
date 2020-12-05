@@ -40,6 +40,9 @@
                                         <label for="exampleInputEmail1">اسم القسم </label>
                                         <input name="name" class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter Name Department">
+                                        @error('name')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
                                     <div class="row hidden" id="cats_list" >
                                         <div class="col-md-12">

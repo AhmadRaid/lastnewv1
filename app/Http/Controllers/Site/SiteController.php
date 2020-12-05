@@ -22,9 +22,13 @@ class SiteController extends Controller
 
     public function newspage($id)
     {
+        $news = News::find($id);
 
-        $news = News::where('id',$id)->get();
+       $increas_visit_count= $news ->Visit_Count +1;
 
+       $news->update([
+            'Visit_Count' =>$increas_visit_count
+        ]);
 
         return view('Site.newspage',compact('news'));
     }

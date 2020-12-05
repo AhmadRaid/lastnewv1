@@ -35,17 +35,25 @@
                             <form role="form" id="quickForm" novalidate="novalidate"
                                   method="post" action="{{ route('Admin.News.store') }}">
                                 @csrf
+                                <input type="hidden" name="visit_count" value="0">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Title News</label>
                                         <input  name="title_news" class ='form-control'>
+                                        @error('title_news')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
+
 
 
                                     <div class="form-group">
                                         <label>Content News</label>
-
                                         <textarea id="editor" rows="5" cols="50ad" name="content_" class="form-control"></textarea>
+
+                                        @error('content_')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <!-- /.card-header -->
@@ -59,12 +67,17 @@
                                                 </option>
                                             @endforeach
                                         </select>
-
+                                        @error('department_id')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group">
                                         <label>Image</label> <br>
                                         <input type="file" name="image_news">
+                                        @error('image_news')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
 
 
@@ -311,6 +324,9 @@
                                             <option value="Zambia">Zambia</option>
                                             <option value="Zimbabwe">Zimbabwe</option>
                                         </select>
+                                        @error('country')
+                                        <span class="text-danger"> {{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="row">
