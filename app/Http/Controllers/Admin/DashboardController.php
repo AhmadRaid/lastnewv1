@@ -11,6 +11,6 @@ class DashboardController extends Model
     }
 
     public function Activity(){
-        $users = \App\Models\User::all();
+        $users = \\App\User::all();
         return view('welcome',compact('users'));    }
 }

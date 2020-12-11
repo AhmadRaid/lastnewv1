@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use \App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
@@ -41,7 +41,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
-            'roles_name' => 'required'
+            'roles' => 'required'
         ]);
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);

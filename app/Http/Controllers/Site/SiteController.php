@@ -35,10 +35,11 @@ class SiteController extends Controller
 
     public function image()
     {
-        $news = News::all();
+        return view('Site.image');
+    }
 
-        $last_news = News::orderBy('created_at', 'desc')->take(5)->get();
-
-        return view('Site.index', compact('news') , compact('last_news'));
+    public function video()
+    {
+        return view('Site.video');
     }
 }

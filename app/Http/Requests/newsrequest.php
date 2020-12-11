@@ -27,7 +27,6 @@ class newsrequest extends FormRequest
             'title_news' => 'required',
             'content_' => 'required',
             'country' => 'required',
-            'image_news' => 'required',
             'department_id' => 'required'
         ];
     }

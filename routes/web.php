@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('test', function () {
-$users = \App\Models\User::all();
+$users = \App\User::all();
 return view('ActivityUser',compact('users'));
 });

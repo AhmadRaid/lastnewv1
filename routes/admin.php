@@ -39,7 +39,8 @@ Route::group(['prefix' => 'Departments', 'namespace' => 'Admin'], function () {
     Route::get('create', 'DepartmentController@create')->name('Admin.departments.create');
     Route::post('store', 'DepartmentController@store')->name('Admin.departments.store');
     Route::get('image-upload', 'ImageUploadController@imageUpload')->name('Admin.departments.uploadimage');
-    Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('Admin.departments.postuploadimage');
+    Route::post('image-upload_folder', 'saveProductImages@saveProductImages')->name('Admin.departments.postuploadimage');
+    Route::post('image-upload_db', 'saveProductImages@saveProductImages')->name('Admin.departments.postuploadimage');
 
 
 });
@@ -53,6 +54,9 @@ Route::group(['prefix' => 'News', 'namespace' => 'Admin'], function () {
     Route::get('index', 'NewsController@index')->name('Admin.News');
     Route::get('create', 'NewsController@create')->name('Admin.News.create');
     Route::post('store', 'NewsController@store')->name('Admin.News.store');
+    Route::get('image/{id}', 'NewsController@getimage')->name('Admin.news.uploadimage');
+    Route::post('image/folder', 'NewsController@saveProductImagesFolder')->name('Admin.news.post_upload_image_folder');
+    Route::post('image-upload-db', 'NewsController@saveProductImagesDB')->name('Admin.news.post_upload_image_db');
 
 });
 
@@ -61,5 +65,8 @@ Route::group(['prefix' => 'Opinion', 'namespace' => 'Admin'], function () {
     Route::get('index', 'OpinionController@index')->name('Admin.Opinion');
     Route::get('create', 'OpinionController@create')->name('Admin.Opinion.create');
     Route::post('store', 'OpinionController@store')->name('Admin.Opinion.store');
+
+
+
 
 });

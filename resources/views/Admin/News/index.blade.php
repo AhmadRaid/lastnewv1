@@ -68,6 +68,9 @@
                                     <th
                                         style="width: 30px;">Image
                                     </th>
+                                    <th
+                                        style="width: 30px;">Act
+                                    </th>
                                 </tr>
                             </table>
                         </div>
@@ -81,7 +84,10 @@
                                         <td>{{ $New -> Content }}</td>
                                         <td>{{ $New -> Is_active }}</td>
                                         <td>{{ $New -> Country }}</td>
-                                        <td><img style="width: 150px ; height: 150px " src="{{ asset('assets/images/news/'.$New->Image) }}"></td>
+                                        <td><img style="width: 100px ; height: 100px " src="{{ asset('assets/images/news/'.$New->Image) }}"></td>
+                                        <td>
+                                            <a href="{{route('Admin.news.uploadimage',$New->id)}}"> اضافة صورة</a>
+                                        </td>
                                 </tr>
                                 @endforeach
                                 </tbody>

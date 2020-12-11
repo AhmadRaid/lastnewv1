@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('index','Site\SiteController@index');
 Route::get('newspage/{id}','Site\SiteController@newspage')->name('Site.newspage');
-Route::get('index','Site\SiteController@index');
-Route::get('index','Site\SiteController@index');
+Route::get('image','Site\SiteController@image');
+Route::get('video','Site\SiteController@video');

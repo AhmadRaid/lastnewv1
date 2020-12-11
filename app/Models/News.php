@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use \JordanMiguel\LaravelPopular\Traits\Visitable;
-
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class News extends Model implements HasMedia
 {
-    use Visitable;
+    use Visitable ,HasMediaTrait;
 
     protected $guarded = [];
 
